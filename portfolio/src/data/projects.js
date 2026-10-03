@@ -26,19 +26,16 @@ export const projects = [
     id: "papelera",
     title: "Grupo Fibras — Papelera Vazquez",
     description:
-      "Sitio institucional para una empresa de reciclaje de papel y cartón, con pedidos de presupuesto por WhatsApp.",
-    problem:
-      "La empresa no tenía presencia web y recibía las consultas de precio de forma desordenada, por teléfono y redes.",
-    approach:
-      "SPA en React + Vite con React Router. Página de materiales y un flujo de presupuesto (retiro o entrega + materiales) que arma el mensaje y abre WhatsApp. Imágenes optimizadas en WebP, carga diferida y diseño responsive.",
-    result:
-      "Sitio publicado en Vercel; el peso del proyecto bajó de 1,3 GB a 15 MB y los clientes piden presupuesto en dos clics.",
+      "Sitio para una empresa de reciclaje de papel y cartón, con pedido de presupuesto por WhatsApp.",
+    problem: "",
+    approach: "",
+    result: "",
     stack: ["React", "Vite", "React Router", "Framer Motion"],
     cover: "/media/papelera/papelera-1-poster.webp",
     gallery: [],
     videos: videosDe("papelera", 4),
     demoUrl: "",
-    repoUrl: "https://github.com/MaxJerochim/papelera-vazquez",
+    repoUrl: "",
     featured: true,
   },
   {
