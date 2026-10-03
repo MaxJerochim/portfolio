@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import Terminal from "./Terminal";
+import { profile } from "../data/profile";
 
 export default function Hero() {
   return (
@@ -44,17 +45,17 @@ export default function Hero() {
 
         <div>
           <p className="hero-greeting">Hola, soy</p>
-          <h1 className="hero-name">[Tu Nombre]</h1>
-          <h1 className="hero-role">
+          <h1 className="hero-name">{profile.name}</h1>
+          <p className="hero-role">
             <span className="accent-violet">Full</span>{" "}
             <span className="accent-red">Stack</span> Developer
-          </h1>
+          </p>
         </div>
 
         <p className="hero-subtitle">
-          Construyo productos end-to-end: interfaces con React y React
-          Native, APIs robustas con Java y Spring Boot, y persisto todo en
-          SQL y NoSQL (MongoDB, Neo4j).
+          Construyo productos de punta a punta: interfaces con React y React
+          Native, APIs robustas con Java y Spring Boot, y datos en bases SQL
+          y NoSQL (MongoDB, Neo4j).
         </p>
 
         <div className="hero-cta">

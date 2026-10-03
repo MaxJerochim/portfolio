@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import ThemeToggle from "./ThemeToggle";
+import { profile } from "../data/profile";
 
 const LINKS = [
   { href: "#proyectos", label: "Proyectos" },
@@ -22,18 +23,18 @@ export default function Navbar({ theme, onToggleTheme }) {
     <header className={`navbar ${scrolled ? "navbar-scrolled" : ""}`}>
       <a href="#top" className="navbar-logo">
         <span className="accent-violet">&lt;</span>
-        TuNombre
+        {profile.handle}
         <span className="accent-red">/&gt;</span>
       </a>
 
       <nav className="navbar-links">
         {LINKS.map((link) => (
-          <a key={link.href} href={link.href}>
+          <a key={link.href} href={link.href} className="navbar-link">
             {link.label}
           </a>
         ))}
         <ThemeToggle theme={theme} onToggle={onToggleTheme} />
-        <a href="#contacto" className="btn btn-red btn-small">
+        <a href="#contacto" className="btn btn-red btn-small navbar-cta">
           Hablemos
         </a>
       </nav>

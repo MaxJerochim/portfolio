@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 const LINES = [
-  { prompt: "$ whoami", output: "> full_stack_developer" },
+  { prompt: "$ whoami", output: "> max_jerochim · full_stack_developer" },
   { prompt: "$ cat stack.json", output: null },
   { prompt: "$ echo $STATUS", output: '"buscando nuevos desafíos"' },
 ];

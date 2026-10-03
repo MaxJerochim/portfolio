@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useKeyPress } from "../hooks/useKeyPress";
+import { profile } from "../data/profile";
 
 const HELP_TEXT = [
   "Comandos disponibles:",
@@ -20,14 +21,18 @@ function runCommand(cmd, { onClose, onNavigate }) {
     case "help":
       return HELP_TEXT;
     case "whoami":
-      return ["[Tu Nombre] — Full Stack Developer (React · Java · SQL/NoSQL)"];
+      return [`${profile.name} — Full Stack Developer (React · Java · SQL/NoSQL)`];
     case "skills":
       return ["React, React Native, JavaScript, Java, Spring Boot, PostgreSQL, MongoDB, Neo4j"];
     case "projects":
       onNavigate("#proyectos");
       return ["Abriendo #proyectos..."];
     case "contact":
-      return ["[tu@email.com] · github.com/[tuusuario] · linkedin.com/in/[tuusuario]"];
+      return [
+        [profile.email, profile.github.replace("https://", ""), profile.linkedin.replace("https://", "")]
+          .filter(Boolean)
+          .join(" · "),
+      ];
     case "clear":
       return { clear: true };
     case "exit":

@@ -52,8 +52,8 @@ export default function Projects() {
         <span className="section-label accent-violet">// proyectos</span>
         <h2>Cosas que construí</h2>
         <p className="section-subtitle">
-          Un caso a fondo, y el resto del trabajo debajo. Click en cualquier
-          proyecto para ver fotos y video en grande.
+          Un caso a fondo y el resto del trabajo debajo. Tocá cualquier
+          proyecto para ver los videos en grande.
         </p>
       </div>
 
@@ -69,7 +69,6 @@ export default function Projects() {
             onOpenMedia={openMedia}
           />
         ))}
-        <div className="project-card-next">+ [tu próximo proyecto]</div>
       </div>
 
       <Lightbox
