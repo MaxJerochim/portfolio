@@ -1,7 +1,20 @@
 import { motion } from "framer-motion";
 import { Play } from "lucide-react";
 
+const isRealLink = (url) => typeof url === "string" && /^https?:\/\/.+\..+/.test(url);
+
 export default function ProjectCard({ project, featured, onOpenMedia }) {
+  const videoCount = (project.videos?.length || 0) + (project.video ? 1 : 0);
+  const imageCount = project.gallery?.length || 0;
+  const mediaLabel =
+    videoCount && imageCount ? "Ver fotos y videos"
+      : videoCount > 1 ? `Ver ${videoCount} videos`
+      : videoCount === 1 ? "Ver video"
+      : "Ver fotos";
+  const hasCaseStudy = featured && project.problem && project.approach;
+  const showDemo = isRealLink(project.demoUrl);
+  const showRepo = isRealLink(project.repoUrl);
+
   return (
     <motion.article
       className={`project-card ${featured ? "project-card-featured" : ""}`}
@@ -14,12 +27,12 @@ export default function ProjectCard({ project, featured, onOpenMedia }) {
       <button
         className="project-media"
         onClick={() => onOpenMedia(project, 0)}
-        aria-label={`Ver fotos y video de ${project.title}`}
+        aria-label={`${mediaLabel} de ${project.title}`}
       >
-        <img src={project.cover} alt={project.title} loading="lazy" />
+        <img src={project.cover} alt={project.title} loading="lazy" decoding="async" />
         <div className="project-media-overlay">
           <Play size={featured ? 30 : 20} />
-          <span>Ver fotos {project.video ? "y video" : ""}</span>
+          <span>{mediaLabel}</span>
         </div>
         {featured && <span className="project-badge">Proyecto principal</span>}
       </button>
@@ -38,7 +51,7 @@ export default function ProjectCard({ project, featured, onOpenMedia }) {
           ))}
         </div>
 
-        {featured ? (
+        {hasCaseStudy ? (
           <div className="project-case-study">
             <p>
               <strong className="accent-violet">PROBLEMA —</strong>{" "}
@@ -56,14 +69,20 @@ export default function ProjectCard({ project, featured, onOpenMedia }) {
           <p className="project-description">{project.description}</p>
         )}
 
-        <div className="project-links">
-          <a href={project.demoUrl} target="_blank" rel="noreferrer">
-            Ver demo →
-          </a>
-          <a href={project.repoUrl} target="_blank" rel="noreferrer">
-            Código →
-          </a>
-        </div>
+        {(showDemo || showRepo) && (
+          <div className="project-links">
+            {showDemo && (
+              <a href={project.demoUrl} target="_blank" rel="noreferrer">
+                Ver demo →
+              </a>
+            )}
+            {showRepo && (
+              <a href={project.repoUrl} target="_blank" rel="noreferrer">
+                Código →
+              </a>
+            )}
+          </div>
+        )}
       </div>
     </motion.article>
   );

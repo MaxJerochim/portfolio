@@ -4,15 +4,20 @@ import ProjectCard from "./ProjectCard";
 import Lightbox from "./Lightbox";
 
 function buildMedia(project) {
-  const images = project.gallery.map((src) => ({
+  const images = (project.gallery || []).map((src) => ({
     type: "image",
     src,
     alt: project.title,
   }));
-  const video = project.video
-    ? [{ type: "video", src: project.video, alt: project.title }]
-    : [];
-  return [...images, ...video];
+  const videos = (project.videos || []).map((v) => ({
+    type: "video",
+    src: v.src,
+    poster: v.poster,
+    alt: project.title,
+  }));
+  // compatibilidad con el formato viejo (un solo video)
+  if (project.video) videos.push({ type: "video", src: project.video, alt: project.title });
+  return [...images, ...videos];
 }
 
 export default function Projects() {

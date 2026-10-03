@@ -59,7 +59,15 @@ export default function Lightbox({ media, index, onClose, onPrev, onNext }) {
             onClick={(e) => e.stopPropagation()}
           >
             {current.type === "video" ? (
-              <video src={current.src} controls autoPlay={false} />
+              <video
+                src={current.src}
+                poster={current.poster}
+                controls
+                autoPlay
+                muted
+                playsInline
+                preload="metadata"
+              />
             ) : (
               <img src={current.src} alt={current.alt || ""} />
             )}
