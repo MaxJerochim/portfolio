@@ -43,6 +43,9 @@ export default function Projects() {
     setActiveIndex((i) => (i - 1 + activeMedia.length) % activeMedia.length);
   }
 
+  const featuredProject = projects.find((p) => p.featured);
+  const restProjects = projects.filter((p) => !p.featured);
+
   return (
     <section id="proyectos" className="section projects-section">
       <div className="section-heading">
@@ -54,12 +57,20 @@ export default function Projects() {
         </p>
       </div>
 
+      {featuredProject && (
+        <ProjectCard
+          project={featuredProject}
+          featured
+          onOpenMedia={openMedia}
+        />
+      )}
+
       <div className="projects-grid">
-        {projects.map((project) => (
+        {restProjects.map((project) => (
           <ProjectCard
             key={project.id}
             project={project}
-            featured={project.featured}
+            featured={false}
             onOpenMedia={openMedia}
           />
         ))}

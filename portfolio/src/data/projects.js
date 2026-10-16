@@ -2,18 +2,13 @@
 // bloque, cambiá los valores y sumalo al array. No hace falta tocar
 // ningún componente.
 //
-// featured: true  -> se le pone el badge "Proyecto principal" y, si tiene
-//                     problem/approach/result, muestra el case study en vez
-//                     de la descripción corta. Dejalo en true en UN SOLO
-//                     proyecto.
-//
-// size -> controla qué tan grande es la tarjeta en la grilla bento de
-//         escritorio (en mobile todas quedan en una columna igual):
-//           "xl" -> grande, ocupa 4 de 6 columnas
-//           "lg" -> ancha, ocupa 2 de 6 columnas (usala junto a una "xl"
-//                   para completar la fila)
-//           "md" -> estándar, ocupa 2 de 6 columnas (default si no se pone)
-//         Para que las filas cierren prolijas, sumá los números: 6, 12, etc.
+// featured: true  -> va arriba de todo, a todo el ancho, con el badge
+//                     "Proyecto principal" y, si tiene problem/approach/
+//                     result, muestra el case study en vez de la
+//                     descripción corta. Dejalo en true en UN SOLO
+//                     proyecto. El resto se acomoda solo debajo, en una
+//                     grilla que se ajusta a la altura de cada tarjeta
+//                     (no hace falta definir tamaños a mano).
 //
 // cover   -> imagen de la tarjeta (liviana, .webp).
 // gallery -> capturas extra (opcional). Se muestran antes de los videos.
@@ -47,7 +42,6 @@ export const projects = [
     demoUrl: "",
     repoUrl: "",
     featured: true,
-    size: "xl",
   },
   {
     id: "lm-motors",
@@ -64,7 +58,6 @@ export const projects = [
     demoUrl: "",
     repoUrl: "",
     featured: false,
-    size: "lg",
   },
   {
     id: "cartech",
@@ -81,7 +74,6 @@ export const projects = [
     demoUrl: "",
     repoUrl: "",
     featured: false,
-    size: "md",
   },
   {
     id: "elixir-baires",
@@ -98,7 +90,6 @@ export const projects = [
     demoUrl: "",
     repoUrl: "",
     featured: false,
-    size: "md",
   },
   {
     id: "ig-clone",
@@ -115,6 +106,5 @@ export const projects = [
     demoUrl: "",
     repoUrl: "",
     featured: false,
-    size: "md",
   },
 ];
