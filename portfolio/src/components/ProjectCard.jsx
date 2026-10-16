@@ -14,10 +14,11 @@ export default function ProjectCard({ project, featured, onOpenMedia }) {
   const hasCaseStudy = featured && project.problem && project.approach;
   const showDemo = isRealLink(project.demoUrl);
   const showRepo = isRealLink(project.repoUrl);
+  const size = project.size || "md";
 
   return (
     <motion.article
-      className={`project-card ${featured ? "project-card-featured" : ""}`}
+      className={`project-card project-card--${size}`}
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}

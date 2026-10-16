@@ -24,9 +24,6 @@ export default function Projects() {
   const [activeMedia, setActiveMedia] = useState(null);
   const [activeIndex, setActiveIndex] = useState(null);
 
-  const featured = projects.find((p) => p.featured);
-  const rest = projects.filter((p) => !p.featured);
-
   function openMedia(project) {
     setActiveMedia(buildMedia(project));
     setActiveIndex(0);
@@ -57,15 +54,12 @@ export default function Projects() {
         </p>
       </div>
 
-      {featured && (
-        <ProjectCard project={featured} featured onOpenMedia={openMedia} />
-      )}
-
       <div className="projects-grid">
-        {rest.map((project) => (
+        {projects.map((project) => (
           <ProjectCard
             key={project.id}
             project={project}
+            featured={project.featured}
             onOpenMedia={openMedia}
           />
         ))}
